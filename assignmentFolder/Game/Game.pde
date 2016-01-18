@@ -1,6 +1,6 @@
 Bouncer bouncer = new Bouncer();
 
-float speed = 4;
+float speed = 2;
 
 void setup(){
  size(550, 730); 
@@ -8,8 +8,9 @@ void setup(){
 
 
 void draw(){ //<>//
-  background(255);
+  background(80);
   
+  bouncer.OutofBounds();
   bouncer.display();
   bouncer.move();
 }

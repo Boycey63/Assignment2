@@ -4,11 +4,14 @@ class Bouncer
   PVector Position;
   PVector nextDirectionX;
   PVector nextDirectionY;
+  float Height, Width;
   
   Bouncer()
   {
-    Position = new PVector(275, (750 * .75));
-    sideLenght = new PVector(80, 40);
+    Height = 730;
+    Width = 550;
+    Position = new PVector(Width/2, (Height * .75));
+    sideLenght = new PVector(100, 40);
   }
 
   void display()
@@ -43,6 +46,18 @@ class Bouncer
     if (key == 'd')
     {
       Position.add(nextDirectionX);
+    }
+  }
+  
+  void OutofBounds()
+  {
+   if ((Position.x + (sideLenght.x / 2)) > width || (Position.x -  sideLenght.x / 2) < 0 || (Position.y + (sideLenght.y / 2)) > height || ((Position.y - (sideLenght.y / 2)) < (Height / 2)))
+    {
+      background(255, 0, 0);
+    } 
+    else
+    {
+      background(80);
     }
   }
 }
