@@ -28,36 +28,24 @@ class Bouncer
     nextDirectionY = new PVector(0, speed);
 
 
-    if (key == 'w')
+    if (key == 'w' && (Position.y - (sideLenght.y / 2)) > (Height / 2))
     {
       Position.sub(nextDirectionY);
     }
 
-    if (key == 'a')
+    if (key == 'a' && (Position.x -  sideLenght.x / 2) > 0 )
     {
       Position.sub(nextDirectionX);
     }
 
-    if (key == 's')
+    if (key == 's' && Position.y + (sideLenght.y / 2) < height)
     {
       Position.add(nextDirectionY);
     }
 
-    if (key == 'd')
+    if (key == 'd' && (Position.x + (sideLenght.x / 2)) < width)
     {
       Position.add(nextDirectionX);
-    }
-  }
-  
-  void OutofBounds()
-  {
-   if ((Position.x + (sideLenght.x / 2)) > width || (Position.x -  sideLenght.x / 2) < 0 || (Position.y + (sideLenght.y / 2)) > height || ((Position.y - (sideLenght.y / 2)) < (Height / 2)))
-    {
-      background(255, 0, 0);
-    } 
-    else
-    {
-      background(80);
     }
   }
 }
