@@ -13,4 +13,6 @@ void draw(){ //<>//
   
   bouncer.display();
   bouncer.move();
+  ball.display();
+  ball.move();
 }

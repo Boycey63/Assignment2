@@ -4,6 +4,7 @@ class Bouncer
   PVector Position;
   PVector nextDirectionX;
   PVector nextDirectionY;
+  PVector TLcorner, TRcorner;
   float Height, Width;
   
   Bouncer()
@@ -12,6 +13,8 @@ class Bouncer
     Width = 550;
     Position = new PVector(Width/2, (Height * .75));
     sideLenght = new PVector(100, 40);
+    TLcorner = new PVector(Position.x - sideLenght.x, Position.y - sideLenght.y);
+    TRcorner = new PVector(TLcorner.x + sideLenght.x, TLcorner.y);
   }
 
   void display()
