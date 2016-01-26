@@ -12,8 +12,7 @@ class Ball extends Bouncer
     radius = new PVector(40, 40);
     bouncePoint = new PVector(centerPoint.x, (centerPoint.y - radius.y));
   }
-
-
+  
   void display()
   {
     ellipse(centerPoint.x, centerPoint.y, radius.x, radius.y);
