@@ -15,4 +15,5 @@ void draw(){ //<>//
   bouncer.move();
   ball.display();
   ball.move();
+  ball.bounce();
 }
