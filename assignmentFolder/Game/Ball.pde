@@ -7,10 +7,10 @@ class Ball extends Bouncer
 
   Ball()
   {
-    direction = new PVector(-1, 1);
+    direction = new PVector(-1, -1);
     centerPoint = new PVector(Width / 2, Height /4); 
     radius = new PVector(40, 40);
-    bouncePoint = new PVector(centerPoint.x, (centerPoint.y - radius.y));
+    bouncePoint = new PVector(centerPoint.x, (centerPoint.y + radius.y));
   }
   
   void display()
@@ -27,10 +27,11 @@ class Ball extends Bouncer
   void bounce()
   {
     //Checks if ball hits between the top part of the bouncer bar
-   /*if(bouncePoint.x > TLcorner.x || bouncePoint.x < TRcorner.x && bouncePoint.y == TLcorner.y)
+   if((bouncePoint.x > TLcorner.x || bouncePoint.x < TRcorner.x) && bouncePoint.y >= TLcorner.y)
    {
-     direction.x = - direction.x;
-   }*/
+     println("sucess");
+     //direction.y = (direction.y * - direction.y);
+   }
    
    //Check if ball hits sides and bounce back
    if(centerPoint.x >= (width - (radius.x / 2)) || centerPoint.x <= (radius.x / 2))
@@ -39,7 +40,7 @@ class Ball extends Bouncer
    }
    
    //Check if ball hits top and bounce back
-   if((centerPoint.y - radius.y) <= 0)
+   if((centerPoint.y - (radius.y / 2)) <= 0)
    {
      direction.y = (direction.y * direction.y);
    }
