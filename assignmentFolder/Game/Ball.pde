@@ -1,37 +1,36 @@
-class Ball extends Bouncer
+class Ball
 {
   PVector centerPoint;
   PVector radius;
-  PVector bouncePoint;
   PVector direction;
 
   Ball()
   {
-    direction = new PVector(-1, -1);
-    centerPoint = new PVector(Width / 2, Height /4); 
-    radius = new PVector(40, 40);
-    bouncePoint = new PVector(centerPoint.x, (centerPoint.y + radius.y));
+    Boundary = new PVector(730, 550);
+    direction = new PVector(3, -3);
+    radius = new PVector(30, 30);
+    centerPoint = new PVector(Boundary.y /2, ((Boundary.x * .75) - radius.x)); 
   }
   
   void display()
   {
+    fill(0);
     ellipse(centerPoint.x, centerPoint.y, radius.x, radius.y);
   }
   
   void move()
   {
-   centerPoint.x += direction.x;
-   centerPoint.y += direction.y;
+   centerPoint.add(direction);
   }
   
-  void bounce()
+  void bounce(PVector topLeft, PVector topRight, PVector side)
   {
     //Checks if ball hits between the top part of the bouncer bar
-   if((bouncePoint.x > TLcorner.x || bouncePoint.x < TRcorner.x) && bouncePoint.y >= TLcorner.y)
+   if(centerPoint.x > topLeft.x && centerPoint.x < topRight.x && (centerPoint.y + (radius.y / 2)) == topLeft.y)
    {
-     println("sucess");
-     //direction.y = (direction.y * - direction.y);
-   }
+     direction.y =  - direction.y;
+     map(dist((topLeft.x + (side.x / 2)), topLeft.y, centerPoint.x, centerPoint.y + (radius.y / 2)), 0, (side.x /2), 1, 5);
+   } 
    
    //Check if ball hits sides and bounce back
    if(centerPoint.x >= (width - (radius.x / 2)) || centerPoint.x <= (radius.x / 2))
@@ -42,11 +41,10 @@ class Ball extends Bouncer
    //Check if ball hits top and bounce back
    if((centerPoint.y - (radius.y / 2)) <= 0)
    {
-     direction.y = (direction.y * direction.y);
+     direction.y = -direction.y;
    }
   }
 }
-
 
 //If touched bottom
 //(centerPoint.y + radius.y) >= width

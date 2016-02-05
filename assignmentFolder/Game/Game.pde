@@ -1,7 +1,8 @@
 Bouncer bouncer = new Bouncer();
 Ball ball = new Ball();
 
-float speed = 4;
+PVector Boundary;
+ArrayList<GameObjective> content = new ArrayList<GameObjective>();
 
 void setup(){
  size(550, 730); 
@@ -15,5 +16,5 @@ void draw(){ //<>//
   bouncer.move();
   ball.display();
   ball.move();
-  ball.bounce();
+  ball.bounce(bouncer.TLcorner, bouncer.TRcorner, bouncer.sideLenght);
 }
