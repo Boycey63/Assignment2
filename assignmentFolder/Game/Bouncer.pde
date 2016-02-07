@@ -30,12 +30,12 @@ class Bouncer extends GameObjective
     nextDirectionY = new PVector(0, speed);
 
 
-    /*if (key == 'w' && (Position.y - (sideLenght.y / 2)) > (Boundary.x * 3/5))
+    if (key == 'w' && (Position.y - (sideLenght.y / 2)) > (Boundary.x * 4/5))
     {
       Position.sub(nextDirectionY);
       TLcorner.sub(nextDirectionY);
       TRcorner.sub(nextDirectionY);
-    }*/
+    }
 
     if (key == 'a' && (Position.x -  sideLenght.x / 2) > 0 )
     {
@@ -44,12 +44,12 @@ class Bouncer extends GameObjective
       TRcorner.sub(nextDirectionX);
     }
 
-    /*if (key == 's' && Position.y + (sideLenght.y / 2) < height)
+    if (key == 's' && Position.y + (sideLenght.y / 2) < height)
     {
       Position.add(nextDirectionY);
       TLcorner.add(nextDirectionY);
       TRcorner.add(nextDirectionY);
-    }*/
+    }
 
     if (key == 'd' && (Position.x + (sideLenght.x / 2)) < width)
     {
