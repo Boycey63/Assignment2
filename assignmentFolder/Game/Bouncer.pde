@@ -37,7 +37,7 @@ class Bouncer extends GameObjective
       TRcorner.sub(nextDirectionY);
     }
 
-    if (key == 'a' && (Position.x -  sideLenght.x / 2) > 0 )
+    if (key == 'a' /*&& (Position.x -  sideLenght.x / 2) > 0*/ )
     {
       Position.sub(nextDirectionX);
       TLcorner.sub(nextDirectionX);
