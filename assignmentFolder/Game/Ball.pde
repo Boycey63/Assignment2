@@ -3,6 +3,7 @@ class Ball extends GameObjective
   PVector centerPoint;
   PVector radius;
   PVector direction;
+  PVector increaseSpeed;
   int bounceCount;
 
   Ball()
@@ -12,6 +13,7 @@ class Ball extends GameObjective
     direction = new PVector(3, -3);
     radius = new PVector(30, 30);
     centerPoint = new PVector(Boundary.y /2, ((Boundary.x * .75) - radius.x));
+    increaseSpeed = new PVector(5, -5);
   }
 
   void display()
@@ -58,5 +60,17 @@ class Ball extends GameObjective
     //{
     //  endGame = true;
     //}
+  }
+
+  void newLevel()
+  {
+    while (level > 10)
+    {
+      if (score == level)
+      {
+        level = level + 5;
+        direction.add(increaseSpeed);
+      }
+    }
   }
 }

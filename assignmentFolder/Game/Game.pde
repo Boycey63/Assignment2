@@ -6,6 +6,7 @@ Ball ball = new Ball();
 //boolean gameMenu = true;
 //boolean inGame = true;
 int score;
+int level = 5;
 PVector Boundary;
 ArrayList<GameObjective> content = new ArrayList<GameObjective>();
 
@@ -32,7 +33,9 @@ void draw(){ //<>//
     ball.display();
     ball.move();
     ball.bounce(bouncer.TLcorner, bouncer.TRcorner, bouncer.sideLenght);
+    ball.newLevel();
     textSize(20);
     text("Score:" + score, 20, 20);
+    text("Level:" + (level / 5), 40, 40);
   //}
 }
