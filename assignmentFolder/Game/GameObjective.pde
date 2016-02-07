@@ -1,6 +1,6 @@
 class GameObjective
 {
-  float speed = 3;
+  
   
   
   

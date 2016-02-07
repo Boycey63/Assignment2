@@ -3,7 +3,7 @@ class Ball extends GameObjective
   PVector centerPoint;
   PVector radius;
   PVector direction;
-  PVector increaseSpeed;
+  PVector incBallSpeed;
   int bounceCount;
 
   Ball()
@@ -13,7 +13,7 @@ class Ball extends GameObjective
     direction = new PVector(3, -3);
     radius = new PVector(30, 30);
     centerPoint = new PVector(Boundary.y /2, ((Boundary.x * .75) - radius.x));
-    increaseSpeed = new PVector(5, -5);
+    incBallSpeed = new PVector(.5, -.5);
   }
 
   void display()
@@ -38,6 +38,25 @@ class Ball extends GameObjective
         map(dist((topLeft.x + (side.x / 2)), topLeft.y, centerPoint.x, centerPoint.y + (radius.y / 2)), 0, (side.x /2), 1, 5);
         score++;
         bounceCount++;
+
+        //Change Level and Speed
+        if (score == level && (level % 2) == 0)
+        {
+          level = level + 5;
+          direction.add(incBallSpeed);
+          textSize(20);
+          text("Level up!!!", Boundary.y /2, Boundary.x /2);
+        }
+
+
+        if (score == level && (level % 2) == 1)
+        {
+          level = level + 5;
+          speed = speed + 3;
+          println(speed);
+          textSize(20);
+          text("Level up!!!", Boundary.y /2, Boundary.x /2);
+        }
       }
     }
 
@@ -62,15 +81,15 @@ class Ball extends GameObjective
     //}
   }
 
-  void newLevel()
-  {
-    while (level > 10)
-    {
-      if (score == level)
-      {
-        level = level + 5;
-        direction.add(increaseSpeed);
-      }
-    }
-  }
+  /*void newLevel()
+   {
+   while (level > 10)
+   {
+   if (score == level)
+   {
+   level = level + 5;
+   direction.add(increaseSpeed);
+   }
+   }
+   }*/
 }
