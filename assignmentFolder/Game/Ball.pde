@@ -9,11 +9,11 @@ class Ball extends GameObjective
   Ball()
   {
     bounceCount = 0;
-    Boundary = new PVector(730, 550);
+    Boundary = new PVector(700, 500);
     direction = new PVector(3, -3);
     radius = new PVector(30, 30);
     centerPoint = new PVector(Boundary.y /2, ((Boundary.x * .75) - radius.x));
-    incBallSpeed = new PVector(.5, -.5);
+    incBallSpeed = new PVector(1, -1);
   }
 
   void display()
@@ -50,7 +50,7 @@ class Ball extends GameObjective
       if (score == level && (level % 2) == 1)
       {
         level = level + 5;
-        speed = speed + 3;
+        speed = speed + 1;
         println(speed);
         textSize(20);
         text("Level up!!!", Boundary.y /2, Boundary.x /2);

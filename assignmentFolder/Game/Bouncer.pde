@@ -8,7 +8,7 @@ class Bouncer extends GameObjective
   
   Bouncer()
   {
-    Boundary = new PVector(730, 550);
+    Boundary = new PVector(700, 500);
     Position = new PVector(Boundary.y /2, (Boundary.x * .75));
     sideLenght = new PVector(100, 30);
     TLcorner = new PVector(Position.x - (sideLenght.x / 2), Position.y - (sideLenght.y / 2));
@@ -21,7 +21,7 @@ class Bouncer extends GameObjective
   {
     rectMode(CENTER);
     fill(255, 0, 0);
-    rect(Position.x, Position.y, sideLenght.x, sideLenght.y);
+    rect(Position.x, Position.y, sideLenght.x, sideLenght.y ,20);
   } 
   
   void move()
@@ -37,7 +37,7 @@ class Bouncer extends GameObjective
       TRcorner.sub(nextDirectionY);
     }
 
-    if (key == 'a' /*&& (Position.x -  sideLenght.x / 2) > 0*/ )
+    if (key == 'a' && (Position.x -  sideLenght.x / 2) > 0)
     {
       Position.sub(nextDirectionX);
       TLcorner.sub(nextDirectionX);

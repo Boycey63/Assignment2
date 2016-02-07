@@ -1,8 +1,8 @@
-/*class Menu extends GameObjective
+class Menu extends GameObjective
 {
   Menu()
   {
-    Boundary = new PVector(650, 550);
+    Boundary = new PVector(640, 500);
   }
   
   
@@ -12,40 +12,32 @@
     line(0, Boundary.x / 2, Boundary.y, Boundary.x / 2);
     line(0, Boundary.x, Boundary.y, Boundary.x);
     line(Boundary.y / 2, 0, Boundary.y / 2, Boundary.x);
-    line(0, 0,   (Boundary.y /2), (Boundary.x /2));
   }
  
   void mouseClicked()
   {
-   float  divide = height / 2;
-   float  divide2 = width / 2;
-
-  //if(mouseX < (Boundary.y /2) && mouseY < (Boundary.x /2))
-  
-  
-  //Option1
-  if(mouseX < (Boundary.y /2) && mouseY < (Boundary.x /2))
+  //Option1 TOP LEFT
+  if(mouseX < (Boundary.y / 2) && mouseX > 0 && mouseY < (Boundary.x /2) && mouseY >0)
   {
-    println("hello");
    inGame = true;  
   }
 
-  //Option2
-  if (mouseX > divide && mouseY < divide && mouseX > divide2 && mouseY < divide2 )
+  //Option2 TOP RIGHT
+  if(mouseX > (Boundary.y / 2) && mouseX < Boundary.y && mouseY < (Boundary.x /2) && mouseY >0)
   {
-    
+    background(255,0,0);
   }
 
-  //Option3
-  if (mouseX < divide && mouseY > divide && mouseX < divide2 && mouseY > divide2 )
+  //Option3 BOTTOM LEFT
+  if (mouseX < (Boundary.y / 2) && mouseX > 0 && mouseY > (Boundary.x / 2) && mouseY < Boundary.x)
   {
-    
+    background(0,0,255);
   }
 
-  //Option4
-  if (mouseX > divide && mouseY > divide && mouseX > divide2 && mouseY > divide2 )
+  //Option4 BOTTOM RIGHT
+  if (mouseX > (Boundary.y / 2) && mouseX < Boundary.y && mouseY > (Boundary.x / 2) && mouseY < Boundary.x)
   {
-    
+    background(0, 255,0);
   }
 }
-}*/
+}
