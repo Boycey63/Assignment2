@@ -17,25 +17,37 @@ class Menu extends GameObjective
     //Option1 TOP LEFT
     if (mouseX < (Boundary.y / 2) && mouseX > 0 && mouseY < (Boundary.x /2) && mouseY >0)
     {
-      inGame = true;
+      if(mousePressed)
+      {
+        inGame = true;
+      }
     }
 
     //Option2 TOP RIGHT
     if (mouseX > (Boundary.y / 2) && mouseX < Boundary.y && mouseY < (Boundary.x /2) && mouseY >0)
     {
-      background(255, 0, 0);
+      if(mousePressed)
+      {
+        background(255, 0, 0);
+      }
     }
 
     //Option3 BOTTOM LEFT
     if (mouseX < (Boundary.y / 2) && mouseX > 0 && mouseY > (Boundary.x / 2) && mouseY < Boundary.x)
     {
-      background(0, 0, 255);
+      if(mousePressed)
+      {
+        background(0, 0, 255);
+      }
     }
 
     //Option4 BOTTOM RIGHT
     if (mouseX > (Boundary.y / 2) && mouseX < Boundary.y && mouseY > (Boundary.x / 2) && mouseY < Boundary.x)
     {
-      background(0, 255, 0);
+      if(mousePressed)
+      {
+        background(0, 255, 0);
+      }
     }
   }
 }
