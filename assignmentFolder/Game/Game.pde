@@ -1,6 +1,7 @@
-Bouncer bouncer = new Bouncer();
+Bouncer bouncer = new Bouncer(); //<>//
 Ball ball = new Ball();
 Menu menu = new Menu();
+Bumper bumper = new Bumper();
 
 boolean endGame = false;
 boolean gameMenu = true;
@@ -11,22 +12,21 @@ int level = 5;
 PVector Boundary;
 ArrayList<GameObjective> content = new ArrayList<GameObjective>();
 
-void setup(){
- size(500, 700);
+void setup() {
+  size(500, 650);
 }
 
 
-void draw(){ //<>//
+void draw() {
   background(80);
-  
-  if(gameMenu == true)
+
+  if (gameMenu == true)
   {
-   menu.display();
-   menu.mouseClicked();
-   //inGame = false;
+    menu.display();
+    menu.mouseClicked();
   }
-  
-  if(inGame == true)
+
+  if (inGame == true)
   {
     gameMenu = false;
     bouncer.display();
@@ -34,6 +34,8 @@ void draw(){ //<>//
     ball.display();
     ball.move();
     ball.bounce(bouncer.TLcorner, bouncer.TRcorner, bouncer.sideLenght);
+    bumper.display();
+    bumper.move();
     //ball.newLevel();
     textSize(20);
     text("Score:" + score, 20, 20);

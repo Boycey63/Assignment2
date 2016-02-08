@@ -5,10 +5,10 @@ class Bouncer extends GameObjective
   PVector nextDirectionX;
   PVector nextDirectionY;
   PVector TLcorner, TRcorner, BLcorner, BRcorner;
-  
+
   Bouncer()
   {
-    Boundary = new PVector(700, 500);
+    Boundary = new PVector(650, 500);
     Position = new PVector(Boundary.y /2, (Boundary.x * .75));
     sideLenght = new PVector(100, 30);
     TLcorner = new PVector(Position.x - (sideLenght.x / 2), Position.y - (sideLenght.y / 2));
@@ -21,21 +21,29 @@ class Bouncer extends GameObjective
   {
     rectMode(CENTER);
     fill(255, 0, 0);
-    rect(Position.x, Position.y, sideLenght.x, sideLenght.y ,20);
+    rect(Position.x, Position.y, sideLenght.x, sideLenght.y, 20);
   } 
-  
+
   void move()
   {
     nextDirectionX = new PVector(speed, 0);
     nextDirectionY = new PVector(0, speed);
 
 
-    if (key == 'w' && (Position.y - (sideLenght.y / 2)) > (Boundary.x * 4/5))
-    {
-      Position.sub(nextDirectionY);
-      TLcorner.sub(nextDirectionY);
-      TRcorner.sub(nextDirectionY);
-    }
+    /*Code to make bouncer to move up and down
+     if (key == 'w' && (Position.y - (sideLenght.y / 2)) > (Boundary.x * 5/7))
+     {
+     Position.sub(nextDirectionY);
+     TLcorner.sub(nextDirectionY);
+     TRcorner.sub(nextDirectionY);
+     }
+     
+     if (key == 's' && Position.y + (sideLenght.y / 2) < (height - 30))
+     {
+     Position.add(nextDirectionY);
+     TLcorner.add(nextDirectionY);
+     TRcorner.add(nextDirectionY);
+     }*/
 
     if (key == 'a' && (Position.x -  sideLenght.x / 2) > 0)
     {
@@ -44,20 +52,13 @@ class Bouncer extends GameObjective
       TRcorner.sub(nextDirectionX);
     }
 
-    if (key == 's' && Position.y + (sideLenght.y / 2) < height)
-    {
-      Position.add(nextDirectionY);
-      TLcorner.add(nextDirectionY);
-      TRcorner.add(nextDirectionY);
-    }
-
     if (key == 'd' && (Position.x + (sideLenght.x / 2)) < width)
     {
       Position.add(nextDirectionX);
       TLcorner.add(nextDirectionX);
       TRcorner.add(nextDirectionX);
     }
-    
+
     //println(Position.x, Position.y);
     //println(TLcorner.x, TLcorner.y);
     //println(TRcorner.x, TLcorner.y);
