@@ -49,9 +49,10 @@ class Bouncer extends GameObjective
       TLcorner.add(nextDirectionX);
       TRcorner.add(nextDirectionX);
     }
-
+    
+    
     //println(Position.x, Position.y);
-    //println(TLcorner.x, TLcorner.y);
+    //println(TLcorner);
     //println(TRcorner.x, TLcorner.y);
   }
   
@@ -60,9 +61,9 @@ class Bouncer extends GameObjective
     Boundary = new PVector(650, 500);
     Position = new PVector(Boundary.y /2, (Boundary.x * .75));
     sideLenght = new PVector(100, 30);
-    this.TLcorner = new PVector(Position.x - (sideLenght.x / 2), Position.y - (sideLenght.y / 2));
-    this.TRcorner = new PVector(TLcorner.x + sideLenght.x, TLcorner.y);
-    this.BLcorner = new PVector(TLcorner.x, (TLcorner.y + sideLenght.y));
-    this.BRcorner = new PVector(TRcorner.x, BLcorner.y);
+    TLcorner = new PVector(Position.x - (sideLenght.x / 2), Position.y - (sideLenght.y / 2));
+    TRcorner = new PVector(TLcorner.x + sideLenght.x, TLcorner.y);
+    BLcorner = new PVector(TLcorner.x, (TLcorner.y + sideLenght.y));
+    BRcorner = new PVector(TRcorner.x, BLcorner.y);
   }
 }

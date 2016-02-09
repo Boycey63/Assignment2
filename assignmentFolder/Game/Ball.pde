@@ -29,6 +29,7 @@ class Ball extends GameObjective
 
   void paddleBounce(PVector topLeft, PVector topRight, PVector side)
   {
+    println(centerPoint);
     //Checks if ball hits between the top part of the bouncer bar
     if (centerPoint.x > (topLeft.x - 10) && centerPoint.x < (topRight.x + 10) && (centerPoint.y + (radius.y / 2)) == topLeft.y)
     {
@@ -36,7 +37,7 @@ class Ball extends GameObjective
       map(dist((topLeft.x + (side.x / 2)), topLeft.y, centerPoint.x, centerPoint.y + (radius.y / 2)), 0, (side.x /2), 1, 20);
       score++;
       bounceCount++;
-
+      println("Hello");
       //Change Level and Speed
       if (score == level)
       {
@@ -107,9 +108,9 @@ class Ball extends GameObjective
    text("Game Over", Boundary.y /2, lineBreak);
    lineBreak = lineBreak + 40;
    textSize(20);
-   text("Your level was:" + (level / 5),  Boundary.y /2, lineBreak);
+   text("Your level was: " + (level / 5),  Boundary.y /2, lineBreak);
    lineBreak = lineBreak + 20;
-   text("Your score was" + score, Boundary.y /2, lineBreak);
+   text("Your score was: " + score, Boundary.y /2, lineBreak);
    lineBreak = lineBreak + 60;
    text("Press Enter to return to menu", Boundary.y /2, lineBreak);
    

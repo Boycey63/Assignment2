@@ -29,23 +29,25 @@ void draw() {
   {
     menu.display();
     menu.mouseClicked();
-    
-    if(newGame == true)
-    {
-     ball.reset();
-     bouncer.reset();
-     bumper.reset();
-     newGame = false;
-    }
   }
-  
-  if(info == true)
+
+  if (info == true)
   {
-    menu.information();   
+    menu.information();
   }
 
   if (inGame1 == true || inGame2 == true)
   {
+    if (newGame == true)
+    {
+      speed = 3;
+      score=0;
+      level = 5;
+      ball = new Ball();
+      bouncer = new Bouncer();
+      newGame = false;
+    }
+    
     gameMenu = false;
     bouncer.display();
     bouncer.move();
@@ -60,9 +62,9 @@ void draw() {
     text("Score:" + score, 20, 20);
     text("Level:" + (level / 5), 20, 40);
   }
-  
- if(endGame == true)
- {
-    ball.endOfGame(); 
- }
+
+  if (endGame == true)
+  {
+    ball.endOfGame();
+  }
 }
