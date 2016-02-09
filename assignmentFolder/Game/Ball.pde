@@ -27,7 +27,7 @@ class Ball extends GameObjective
     centerPoint.add(direction);
   }
 
-  void bounce(PVector topLeft, PVector topRight, PVector side)
+  void paddleBounce(PVector topLeft, PVector topRight, PVector side)
   {
     //Checks if ball hits between the top part of the bouncer bar
     if (centerPoint.x > (topLeft.x - 10) && centerPoint.x < (topRight.x + 10) && (centerPoint.y + (radius.y / 2)) == topLeft.y)
@@ -38,7 +38,7 @@ class Ball extends GameObjective
       bounceCount++;
 
       //Change Level and Speed
-      if (score == level && (level % 2) == 0)
+      if (score == level)
       {
         level = level + 5;
         direction.add(incBallSpeed);

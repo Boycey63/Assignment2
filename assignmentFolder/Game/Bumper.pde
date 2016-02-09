@@ -6,8 +6,13 @@ class Bumper extends Bouncer
   {
     LorR = 0;
     Boundary = new PVector(650, 500);
-    sideLenght.x = random(50, 150);
-    Position.y = random(50, 100);
+    sideLenght.x = random(70, 100);
+    sideLenght.y = 20;
+    Position.y = (sideLenght.y + 15);
+    this.TLcorner = new PVector(Position.x - (sideLenght.x / 2), Position.y - (sideLenght.y / 2));
+    this.TRcorner = new PVector(TLcorner.x + sideLenght.x, TLcorner.y);
+    this.BLcorner = new PVector(TLcorner.x, (TLcorner.y + sideLenght.y));
+    this.BRcorner = new PVector(TRcorner.x, BLcorner.y);
   }
 
   void display()
@@ -46,4 +51,15 @@ class Bumper extends Bouncer
       }
     }
   }
+  
+  
+  void bumperBounce(PVector ballCenter, PVector rad, PVector dir)
+  { 
+    if(ballCenter.x >= TLcorner.x &&  ballCenter.x <= TRcorner.x && (ballCenter.y - rad.y) <= BLcorner.y)
+    {
+      dir.y =  - dir.y;
+    }
+  }
 }
+
+//ballCenter.x > (TLcorner.x - 10) && ballCenter.x < (TRcorner.x + 10) && (ballCenter.y + (rad.y / 2)) == TLcorner.y

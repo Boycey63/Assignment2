@@ -33,10 +33,10 @@ void draw() {
     bouncer.move();
     ball.display();
     ball.move();
-    ball.bounce(bouncer.TLcorner, bouncer.TRcorner, bouncer.sideLenght);
+    ball.paddleBounce(bouncer.TLcorner, bouncer.TRcorner, bouncer.sideLenght);
+    bumper.bumperBounce(ball.centerPoint, ball.radius, ball.direction);
     bumper.display();
     bumper.move();
-    //ball.newLevel();
     textSize(20);
     text("Score:" + score, 20, 20);
     text("Level:" + (level / 5), 40, 40);
