@@ -31,8 +31,7 @@ void draw() {
   
   if(info == true)
   {
-    menu.information();
-    
+    menu.information();   
   }
 
   if (inGame == true)

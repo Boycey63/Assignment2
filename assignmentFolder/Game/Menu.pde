@@ -7,10 +7,11 @@ class Menu extends GameObjective
     line(0, Boundary.x, Boundary.y, Boundary.x);
     line(Boundary.y / 2, 0, Boundary.y / 2, Boundary.x);
   }
-  
+
   void information()
   {
     float lineBreak = Boundary.x *.25;
+
     textAlign(CENTER);
     textSize(20);
 
@@ -43,12 +44,15 @@ class Menu extends GameObjective
     text("With your money you can buy new bouncer colours", (Boundary.y / 2), lineBreak);
     lineBreak= lineBreak + 40;
     text("Press enter to go back to menu", (Boundary.y / 2), lineBreak);
-    
-    if(key == ENTER)
+
+    if (keyPressed)
     {
-      
-      info = false;
-      gameMenu = true;
+      if (key == ENTER)
+      {
+        info = false;
+        inGame = false;
+        gameMenu = true;
+      }
     }
   }
 
@@ -57,9 +61,8 @@ class Menu extends GameObjective
     //Option1 TOP LEFT
     if (mouseX < (Boundary.y / 2) && mouseX > 0 && mouseY < (Boundary.x /2) && mouseY >0)
     {
-      if(mousePressed)
-      {
-        
+      if (mousePressed)
+      {        
         gameMenu = false;
         info = false;
         inGame = true;
@@ -69,9 +72,8 @@ class Menu extends GameObjective
     //Option2 TOP RIGHT
     if (mouseX > (Boundary.y / 2) && mouseX < Boundary.y && mouseY < (Boundary.x /2) && mouseY >0)
     {
-      if(mousePressed)
+      if (mousePressed)
       {
-        
         gameMenu = false;
         inGame = false;
         info = true;
@@ -81,7 +83,7 @@ class Menu extends GameObjective
     //Option3 BOTTOM LEFT
     if (mouseX < (Boundary.y / 2) && mouseX > 0 && mouseY > (Boundary.x / 2) && mouseY < Boundary.x)
     {
-      if(mousePressed)
+      if (mousePressed)
       {
         background(0, 0, 255);
       }
@@ -90,7 +92,7 @@ class Menu extends GameObjective
     //Option4 BOTTOM RIGHT
     if (mouseX > (Boundary.y / 2) && mouseX < Boundary.y && mouseY > (Boundary.x / 2) && mouseY < Boundary.x)
     {
-      if(mousePressed)
+      if (mousePressed)
       {
         background(0, 255, 0);
       }
