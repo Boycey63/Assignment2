@@ -65,4 +65,17 @@ class Bumper extends Bouncer
       dir.y =  - dir.y;
     }
   }
+  
+  void reset()
+  {
+    LorR = 0;
+    Boundary = new PVector(650, 500);
+    sideLenght.x = random(70, 100);
+    sideLenght.y = 2;
+    Position.y = round(random(Boundary.x * .1, Boundary.x * .5));
+    this.TLcorner = new PVector(Position.x - (sideLenght.x / 2), Position.y - (sideLenght.y / 2));
+    this.TRcorner = new PVector(TLcorner.x + sideLenght.x, TLcorner.y);
+    this.BLcorner = new PVector(TLcorner.x, (TLcorner.y + sideLenght.y));
+    this.BRcorner = new PVector(TRcorner.x, BLcorner.y);
+  }
 }

@@ -8,6 +8,7 @@ class Ball extends GameObjective
 
   Ball()
   {
+    Boundary = new PVector(650, 500);
     bounceCount = 0;
     direction = new PVector(3, -3);
     radius = new PVector(30, 30);
@@ -91,9 +92,47 @@ class Ball extends GameObjective
     }
 
     //If touched bottom
-    //if ((centerPoint.y + radius.y) >= width)
-    //{
-    //  endGame = true;
-    //}
+    if ((centerPoint.y + radius.y) >= (Boundary.x + 90))
+    {
+      endGame = true;
+    }
+  }
+  
+  void endOfGame()
+  {
+   float lineBreak = Boundary.x * .25; 
+    
+   textAlign(CENTER);
+   textSize(40);
+   text("Game Over", Boundary.y /2, lineBreak);
+   lineBreak = lineBreak + 40;
+   textSize(20);
+   text("Your level was:" + (level / 5),  Boundary.y /2, lineBreak);
+   lineBreak = lineBreak + 20;
+   text("Your score was" + score, Boundary.y /2, lineBreak);
+   lineBreak = lineBreak + 60;
+   text("Press Enter to return to menu", Boundary.y /2, lineBreak);
+   
+   if (keyPressed)
+    {
+      if (key == ENTER)
+      {
+        endGame = false;
+        inGame2 = false;
+        info = false;
+        inGame1 = false;
+        newGame = true;
+        gameMenu = true;
+      }
+    }
+  }
+  
+  void reset()
+  {
+    bounceCount = 0;
+    direction = new PVector(3, -3);
+    radius = new PVector(30, 30);
+    centerPoint = new PVector(Boundary.y /2, ((Boundary.x * .75) - radius.x));
+    incBallSpeed = new PVector(.5, -.5);
   }
 }

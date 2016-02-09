@@ -8,6 +8,7 @@ boolean gameMenu = true;
 boolean info = false;
 boolean inGame1 = false;
 boolean inGame2 = false;
+boolean newGame = false;
 float speed = 3;
 int score;
 int level = 5;
@@ -28,6 +29,14 @@ void draw() {
   {
     menu.display();
     menu.mouseClicked();
+    
+    if(newGame == true)
+    {
+     ball.reset();
+     bouncer.reset();
+     bumper.reset();
+     newGame = false;
+    }
   }
   
   if(info == true)
@@ -51,4 +60,9 @@ void draw() {
     text("Score:" + score, 20, 20);
     text("Level:" + (level / 5), 20, 40);
   }
+  
+ if(endGame == true)
+ {
+    ball.endOfGame(); 
+ }
 }
