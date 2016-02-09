@@ -1,15 +1,55 @@
 class Menu extends GameObjective
 {
-  Menu()
-  {
-    Boundary = new PVector(590, 500);
-  }
-
   void display()
   {
+    Boundary = new PVector(560, 500);
     line(0, Boundary.x / 2, Boundary.y, Boundary.x / 2);
     line(0, Boundary.x, Boundary.y, Boundary.x);
     line(Boundary.y / 2, 0, Boundary.y / 2, Boundary.x);
+  }
+  
+  void information()
+  {
+    float lineBreak = Boundary.x *.25;
+    textAlign(CENTER);
+    textSize(20);
+
+    text("Information", (Boundary.y / 2), lineBreak);
+    lineBreak= lineBreak + 20;
+    text("The bouncer may go any direction", (Boundary.y / 2), lineBreak);
+    lineBreak= lineBreak + 40;
+    text("Keys:", (Boundary.y / 2), lineBreak);
+    lineBreak= lineBreak + 20;
+    text("A = LEFT", (Boundary.y / 2), lineBreak);
+    lineBreak= lineBreak + 20;
+    text("W = UP", (Boundary.y / 2), lineBreak);
+    lineBreak= lineBreak + 20;
+    text("D = RIGHT", (Boundary.y / 2), lineBreak);
+    lineBreak= lineBreak + 20;
+    text("S = DOWN", (Boundary.y / 2), lineBreak);
+    lineBreak= lineBreak + 40;
+    text("Levels:", (Boundary.y / 2), lineBreak);
+    lineBreak= lineBreak + 20;
+    text("As you build up score the level increases", (Boundary.y / 2), lineBreak);
+    lineBreak= lineBreak + 20;
+    text("with every increase the ball will increase speed ", (Boundary.y / 2), lineBreak);
+    lineBreak= lineBreak + 20;
+    text("and the computer bumper might increase speed", (Boundary.y / 2), lineBreak);
+    lineBreak= lineBreak + 40;
+    text("Money:", (Boundary.y / 2), lineBreak);
+    lineBreak= lineBreak + 20;
+    text("Every score point will count as 2 pieces of money", (Boundary.y / 2), lineBreak);
+    lineBreak= lineBreak + 20;
+    text("With your money you can buy new bouncer colours", (Boundary.y / 2), lineBreak);
+    lineBreak= lineBreak + 40;
+    text("Press enter to go back to menu", (Boundary.y / 2), lineBreak);
+    
+    if(key == ENTER)
+    {
+      
+      info = false;
+      gameMenu = true;
+    }
   }
 
   void mouseClicked()
@@ -19,6 +59,9 @@ class Menu extends GameObjective
     {
       if(mousePressed)
       {
+        
+        gameMenu = false;
+        info = false;
         inGame = true;
       }
     }
@@ -28,7 +71,10 @@ class Menu extends GameObjective
     {
       if(mousePressed)
       {
-        background(255, 0, 0);
+        
+        gameMenu = false;
+        inGame = false;
+        info = true;
       }
     }
 
