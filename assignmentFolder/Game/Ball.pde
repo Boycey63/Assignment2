@@ -61,14 +61,17 @@ class Ball extends GameObjective
       }
     }
 
-    if ((centerPoint.x + (radius.x / 2)) < 0)
+    if (inGame1 == true)
     {
-      centerPoint.x = Boundary.y;
-    }
+      if ((centerPoint.x + (radius.x / 2)) < 0)
+      {
+        centerPoint.x = Boundary.y;
+      }
 
-    if ((centerPoint.x + (radius.x / 2)) > Boundary.y)
-    {
-      centerPoint.x = 0;
+      if ((centerPoint.x + (radius.x / 2)) > Boundary.y)
+      {
+        centerPoint.x = 0;
+      }
     }
 
     //Check if ball hits top and bounce back
@@ -76,6 +79,15 @@ class Ball extends GameObjective
     {
       direction.y = -direction.y;
       bounceCount = 0;
+    }
+
+    if (inGame2 == true)
+    {
+      //Check if ball hits sides and bounce back
+      if (centerPoint.x >= (width - (radius.x / 2)) || centerPoint.x <= (radius.x / 2))
+      {
+        direction.x = - direction.x;
+      }
     }
 
     //If touched bottom

@@ -6,7 +6,8 @@ Bumper bumper = new Bumper();
 boolean endGame = false;
 boolean gameMenu = true;
 boolean info = false;
-boolean inGame = false;
+boolean inGame1 = false;
+boolean inGame2 = false;
 float speed = 3;
 int score;
 int level = 5;
@@ -34,7 +35,7 @@ void draw() {
     menu.information();   
   }
 
-  if (inGame == true)
+  if (inGame1 == true || inGame2 == true)
   {
     gameMenu = false;
     bouncer.display();

@@ -6,6 +6,14 @@ class Menu extends GameObjective
     line(0, Boundary.x / 2, Boundary.y, Boundary.x / 2);
     line(0, Boundary.x, Boundary.y, Boundary.x);
     line(Boundary.y / 2, 0, Boundary.y / 2, Boundary.x);
+    textAlign(CENTER);
+    textSize(20);
+    text("Play Game (no walls)", Boundary.y * .25, Boundary.x * .25);
+    text("Information", Boundary.y * .75, Boundary.x * .25);
+    text("Play Game (with walls)", Boundary.y * .25, Boundary.x * .75);
+    text("Shop", Boundary.y * .75, Boundary.x * .75);
+    textSize(40);
+    text("NAME OF GAME",Boundary.y * .5, Boundary.x + 55);
   }
 
   void information()
@@ -13,17 +21,16 @@ class Menu extends GameObjective
     float lineBreak = Boundary.x *.25;
 
     textAlign(CENTER);
-    textSize(20);
+    textSize(40);
 
     text("Information", (Boundary.y / 2), lineBreak);
     lineBreak= lineBreak + 20;
-    text("The bouncer may go any direction", (Boundary.y / 2), lineBreak);
+    textSize(20);
+    text("The bouncer may go any direction but UP", (Boundary.y / 2), lineBreak);
     lineBreak= lineBreak + 40;
     text("Keys:", (Boundary.y / 2), lineBreak);
     lineBreak= lineBreak + 20;
     text("A = LEFT", (Boundary.y / 2), lineBreak);
-    lineBreak= lineBreak + 20;
-    text("W = UP", (Boundary.y / 2), lineBreak);
     lineBreak= lineBreak + 20;
     text("D = RIGHT", (Boundary.y / 2), lineBreak);
     lineBreak= lineBreak + 20;
@@ -49,8 +56,9 @@ class Menu extends GameObjective
     {
       if (key == ENTER)
       {
+        inGame2 = false;
         info = false;
-        inGame = false;
+        inGame1 = false;
         gameMenu = true;
       }
     }
@@ -65,7 +73,8 @@ class Menu extends GameObjective
       {        
         gameMenu = false;
         info = false;
-        inGame = true;
+        inGame2 = false;
+        inGame1 = true;
       }
     }
 
@@ -75,7 +84,8 @@ class Menu extends GameObjective
       if (mousePressed)
       {
         gameMenu = false;
-        inGame = false;
+        inGame1 = false;
+        inGame2 = false;
         info = true;
       }
     }
@@ -85,7 +95,10 @@ class Menu extends GameObjective
     {
       if (mousePressed)
       {
-        background(0, 0, 255);
+        gameMenu = false;
+        inGame1 = false;
+        info = false;
+        inGame2 = true;
       }
     }
 

@@ -29,15 +29,6 @@ class Bouncer extends GameObjective
     nextDirectionX = new PVector(speed, 0);
     nextDirectionY = new PVector(0, speed);
 
-
-    //Code to make bouncer to move up and down
-    if (key == 'w' && (Position.y - (sideLenght.y / 2)) > (Boundary.x * 5/7))
-    {
-      Position.sub(nextDirectionY);
-      TLcorner.sub(nextDirectionY);
-      TRcorner.sub(nextDirectionY);
-    }
-
     if (key == 's' && Position.y + (sideLenght.y / 2) < (height - 30))
     {
       Position.add(nextDirectionY);
