@@ -13,10 +13,13 @@ boolean inGame1 = false;
 boolean inGame2 = false;
 boolean store = false;
 boolean newGame = false;
+boolean stop = false;
+
 float speed = 3;
 int score;
 int level = 5;
 int money;
+int total;
 PVector Boundary;
 int cost;
 int number = 10;

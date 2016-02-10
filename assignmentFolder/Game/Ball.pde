@@ -35,7 +35,7 @@ class Ball extends GameObjective
       direction.y =  - direction.y;
       map(dist((topLeft.x + (side.x / 2)), topLeft.y, centerPoint.x, centerPoint.y + (radius.y / 2)), 0, (side.x /2), 1, 20);
       score++;
-      
+
       //Change Level and Speed
       if (score == level)
       {
@@ -95,27 +95,34 @@ class Ball extends GameObjective
       endGame = true;
     }
   }
-  
+
   void endOfGame()
   {
-   float lineBreak = Boundary.x * .25; 
-   
-    money = score * 2;
+    float lineBreak = Boundary.x * .25; 
     
-   textAlign(CENTER);
-   textSize(40);
-   text("Game Over", Boundary.y /2, lineBreak);
-   lineBreak = lineBreak + 40;
-   textSize(20);
-   text("Your level was: " + (level / 5),  Boundary.y /2, lineBreak);
-   lineBreak = lineBreak + 20;
-   text("Your score was: " + score, Boundary.y /2, lineBreak);
-   lineBreak = lineBreak + 20;
-   text("Total money earned: " + (score * 2), Boundary.y /2, lineBreak);
-   lineBreak = lineBreak + 60;
-   text("Press Enter to return to menu", Boundary.y /2, lineBreak);
-   
-   if (keyPressed)
+    money = score * 2;
+    if (stop == false)
+    {
+      total = total + money;
+      stop = true;
+    }
+
+    textAlign(CENTER);
+    textSize(40);
+    text("Game Over", Boundary.y /2, lineBreak);
+    lineBreak = lineBreak + 40;
+    textSize(20);
+    text("Your level was: " + (level / 5), Boundary.y /2, lineBreak);
+    lineBreak = lineBreak + 20;
+    text("Your score was: " + score, Boundary.y /2, lineBreak);
+    lineBreak = lineBreak + 20;
+    text("Total money earned: " + (score * 2), Boundary.y /2, lineBreak);
+    lineBreak = lineBreak + 20;
+    text("Current total money earned: " + total, Boundary.y /2, lineBreak);
+    lineBreak = lineBreak + 60;
+    text("Press Enter to return to menu", Boundary.y /2, lineBreak);
+
+    if (keyPressed)
     {
       if (key == ENTER)
       {

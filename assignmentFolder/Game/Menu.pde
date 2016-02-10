@@ -78,231 +78,234 @@ class Menu extends GameObjective
     text("Store", xpos1, lineBreak);
     lineBreak = lineBreak + 20;
     textSize(20);
-    text("You have " + money + " coins", xpos1, lineBreak);
+    text("You have " + total + " coins", xpos1, lineBreak);
     lineBreak = lineBreak + 20;
     text("Press a number to choose a colour", xpos1, lineBreak);
     lineBreak = lineBreak + 60;
     textSize(30);
-    fill(red.x, red.y, red.z);
+    fill(0);
     text("Bouncer colour", xpos1, lineBreak);
     text("Ball colour", xpos2, lineBreak);
     lineBreak = lineBreak + 40;
     textSize(30);
-    text("(1) Red", xpos1, lineBreak);
-    text("(6) Red", xpos2, lineBreak);
+    text("(1) Red = 10", xpos1, lineBreak);
+    text("(6) Red = 10", xpos2, lineBreak);
     lineBreak = lineBreak + 70;
-    text("(2) Yellow", xpos1, lineBreak);
-    text("(7) Yellow", xpos2, lineBreak);
+    text("(2) Yellow = 12", xpos1, lineBreak);
+    text("(7) Yellow = 12", xpos2, lineBreak);
     lineBreak = lineBreak + 70;
-    text("(3) Blue", xpos1, lineBreak);
-    text("(8) Blue", xpos2, lineBreak);
+    text("(3) Blue = 14", xpos1, lineBreak);
+    text("(8) Blue = 14", xpos2, lineBreak);
     lineBreak = lineBreak + 70;
-    text("(4) Pink", xpos1, lineBreak);
-    text("(9) Pink", xpos2, lineBreak);
+    text("(4) Pink = 16", xpos1, lineBreak);
+    text("(9) Pink = 16", xpos2, lineBreak);
     lineBreak = lineBreak + 70;
-    text("(5) Black", xpos1, lineBreak);
-    text("(0) Black", xpos2, lineBreak);
-    lineBreak = lineBreak + 70;
+    text("(5) Black = 18", xpos1, lineBreak);
+    text("(0) Black = 18", xpos2, lineBreak);
+    lineBreak = lineBreak + 140;
+    fill(255);
+    text("Press Enter to return to menu", xpos1, lineBreak);
     line((xpos2 -10), 124.8, (xpos2 -10), 544.8);
 
     switch(number)
     {
     case 1:
       {
-        counter = 1;
-        if(counter == 1)
-        {
-        cost = 10;
-        if (cost <= money && counter == 1)
-        {
-          //Red
-          bouncerdefCol.x = red.x;
-          bouncerdefCol.y = red.y;
-          bouncerdefCol.z = red.z;
-          money = money - cost;
-          println("Colour changed");
-          counter--;
-        } 
-        if (cost > money && counter == 1)
-        {
-          println("Not enough money");
-          counter--;
-        }
-        }
+          cost = 10;
+          if (cost <= total)
+          {
+            //Red
+            bouncerdefCol.x = red.x;
+            bouncerdefCol.y = red.y;
+            bouncerdefCol.z = red.z;
+            total = total - cost;
+            println("Colour changed");
+            number = 10;
+          } 
+          if (cost > total)
+          {
+            println("Not enough money");
+            number = 10;
+          }
         break;
       }
 
     case 2:
       {
-        counter = 1;
-        cost = 12;
-        if (cost <= money)
-        {
-          //Yellow
-          bouncerdefCol.x = yellow.x;
-          bouncerdefCol.y = yellow.y;
-          bouncerdefCol.z = yellow.z;
-          money = money - cost;
-        } 
-        if (cost > money && counter == 1)
-        {
-          println("Not enough money");
-          counter--;
-        }
+          cost = 12;
+          if (cost <= total)
+          {
+            //Yellow
+            bouncerdefCol.x = yellow.x;
+            bouncerdefCol.y = yellow.y;
+            bouncerdefCol.z = yellow.z;
+            total = total - cost;
+            number = 10;
+          } 
+          if (cost > total)
+          {
+            println("Not enough money");
+            number = 10;
+          }
         break;
       }
 
     case 3:
       {
-        counter = 1;
-        cost = 14;
-        if (cost <= money)
-        {
-          //Blue
-          bouncerdefCol.x = blue.x;
-          bouncerdefCol.y = blue.y;
-          bouncerdefCol.z = blue.z;
-          money = money - cost;
-        }
-        if (cost > money && counter == 1)
-        {
-          println("Not enough money");
-          counter--;
-        }
+            cost = 14;
+            if (cost <= total)
+            {
+              //Blue
+              bouncerdefCol.x = blue.x;
+              bouncerdefCol.y = blue.y;
+              bouncerdefCol.z = blue.z;
+              total = total - cost;
+              number = 10;
+            }
+            if (cost > total)
+            {
+              println("Not enough money");
+              number = 10;
+            }
         break;
       }
 
     case 4:
       {
-        counter = 1;
-        cost = 16;
-        if (cost <= money)
-        {
-          //Pink
-          bouncerdefCol.x = pink.x;
-          bouncerdefCol.y = pink.y;
-          bouncerdefCol.z = pink.z;
-          money = money - cost;
-        }
-        if (cost > money && counter == 1)
-        {
-          println("Not enough money");
-          counter--;
-        }
+          cost = 16;
+          if (cost <= total)
+          {
+            //Pink
+            bouncerdefCol.x = pink.x;
+            bouncerdefCol.y = pink.y;
+            bouncerdefCol.z = pink.z;
+            total = total - cost;
+            number = 10;
+          }
+          if (cost > total)
+          {
+            println("Not enough money");
+            number = 10;
+          }
         break;
       }
 
     case 5:
       {
-        counter = 1;
         cost = 18;
-        if (cost <= money)
+        if (cost <= total)
         {
           //Green
           bouncerdefCol.x = black.x;
           bouncerdefCol.y = black.y;
           bouncerdefCol.z = black.z;
-          money = money - cost;
+          total = total - cost;
+          number = 10;
         }
-        if (cost > money && counter == 1)
+        if (cost > total)
         {
           println("Not enough money");
-          counter--;
+          number = 10;
         }
         break;
       }
+      
     case 6:
       {
-        counter = 1;
         cost = 10;
-        if (cost <= money)
+        if (cost <= total)
         {
           //Red
           balldefCol.x = red.x;
           balldefCol.y = red.y;
           balldefCol.z = red.z;
-          money = money - cost;
+          total = total - cost;
+          number = 10;
         }
-        if (cost > money && counter == 1)
+        if (cost > total)
         {
           println("Not enough money");
-          counter--;
+          number = 10;
         }
         break;
       }
-      case 7:
+      
+    case 7:
       {
-        counter = 1;
         cost = 12;
-        if (cost <= money)
+        if (cost <= total)
         {
           //Yellow
           balldefCol.x = yellow.x;
           balldefCol.y = yellow.y;
           balldefCol.z = yellow.z;
-          money = money - cost;
+          total = total - cost;
+          number = 10;
         }
-        if (cost > money && counter == 1)
+        if (cost > total)
         {
           println("Not enough money");
-          counter--;
+          number = 10;
         }
         break;
       }
-      case 8:
+      
+    case 8:
       {
-        counter = 1;
         cost = 14;
-        if (cost <= money)
+        if (cost <= total)
         {
           //Blue
           balldefCol.x = blue.x;
           balldefCol.y = blue.y;
           balldefCol.z = blue.z;
-          money = money - cost;
+          total = total - cost;
+          number = 10;
         }
-        if (cost > money && counter == 1)
+        if (cost > total)
         {
           println("Not enough money");
-          counter--;
+          number = 10;
         }
         break;
       }
-      case 9:
+      
+    case 9:
       {
-        counter = 1;
         cost = 16;
-        if (cost <= money)
+        if (cost <= total)
         {
           //Pink
           balldefCol.x = pink.x;
           balldefCol.y = pink.y;
           balldefCol.z = pink.z;
-          money = money - cost;
+          total = total - cost;
+          number = 10;
         }
-        if (cost > money && counter == 1)
+        if (cost > total)
         {
           println("Not enough money");
-          counter--;
+          number = 10;
         }
         break;
       }
-      case 0:
+      
+    case 0:
       {
-        counter = 1;
         cost = 18;
-        if (cost <= money)
+        if (cost <= total)
         {
           //Black
           balldefCol.x = black.x;
           balldefCol.y = black.y;
           balldefCol.z = black.z;
-          money = money - cost;
+          total = total - cost;
+          number = 10;
         }
-        if (cost > money && counter == 1)
+        if (cost > total)
         {
           println("Not enough money");
-          counter--;
+          number = 10;
         }
         break;
       }
@@ -310,7 +313,7 @@ class Menu extends GameObjective
 
     default:
       {
-        println("Incorrect value entered");
+        println("Enter a number between 0 and 9");
         break;
       }
     }
@@ -339,6 +342,7 @@ class Menu extends GameObjective
         info = false;
         inGame2 = false;
         store = false;
+        stop = false;
         inGame1 = true;
       }
     }
@@ -352,6 +356,7 @@ class Menu extends GameObjective
         inGame1 = false;
         inGame2 = false;
         store = false;
+        stop = false;
         info = true;
       }
     }
@@ -365,6 +370,7 @@ class Menu extends GameObjective
         inGame1 = false;
         info = false;
         store = false;
+        stop = false;
         inGame2 = true;
       }
     }
@@ -378,6 +384,7 @@ class Menu extends GameObjective
         inGame1 = false;
         info = false;
         inGame2 = false;
+        stop = false;
         store = true;
       }
     }
