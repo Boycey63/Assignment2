@@ -59,7 +59,7 @@ class Bumper extends Bouncer
   void bumperBounce(PVector ballCenter, PVector rad, PVector dir)
   { 
     if (ballCenter.x > TLcorner.x &&  ballCenter.x < TRcorner.x && (ballCenter.y - (rad.y /2)) < BLcorner.y)
-    {
+    { 
       dir.y =  - dir.y;
     }
 

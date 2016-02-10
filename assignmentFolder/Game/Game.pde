@@ -22,6 +22,9 @@ boolean store = false;
 boolean newGame = false;
 boolean stop = false;
 boolean play = true;
+boolean playEnd = true;
+boolean playBounce = true;
+boolean playInGame = true;
 
 float speed = 3;
 int score;
@@ -77,7 +80,7 @@ void draw() {
 
     if (play == true)
     {
-      menu_mus.loop();
+      menu_mus.play();
       play = false;
     }
   }
@@ -88,7 +91,7 @@ void draw() {
     
     if (play == true)
     {
-      menu_mus.loop();
+      menu_mus.play();
       play = false;
     }
   }
@@ -97,12 +100,16 @@ void draw() {
   {
     background(inGame_back);
     
-    if (play == true)
-    {
-      inGame_mus.loop();
-      play = false;
-    }
+    menu_mus.stop();
 
+    if (playInGame == true)
+    {
+      //println(play);
+      inGame_mus.play();
+      playInGame = false;
+
+    }
+    
     if (newGame == true)
     {
       speed = 3;
@@ -111,6 +118,7 @@ void draw() {
       ball = new Ball();
       bouncer = new Bouncer();
       newGame = false;
+      playEnd = true;
     }
 
     gameMenu = false;
@@ -136,7 +144,7 @@ void draw() {
     
     if (play == true)
     {
-      menu_mus.loop();
+      menu_mus.play();
       play = false;
     }
   }
@@ -144,12 +152,10 @@ void draw() {
   if (endGame == true)
   {
     ball.endOfGame();
-    
-    if (play == true)
-    {
+    if (playEnd == true)
       endGame_mus.play();
-      play = false;
-    }
+    playEnd = false;
+    //menu_mus.stop();
   }
 }
 

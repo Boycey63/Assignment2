@@ -32,6 +32,9 @@ class Ball
     //Checks if ball hits between the top part of the bouncer bar
     if (centerPoint.x > (topLeft.x - 10) && centerPoint.x < (topRight.x + 10) && (centerPoint.y + (radius.y / 2)) == topLeft.y)
     {
+      bounce_mus.play();
+      bounce_mus.amp(1.5);
+
       direction.y =  - direction.y;
       map(dist((topLeft.x + (side.x / 2)), topLeft.y, centerPoint.x, centerPoint.y + (radius.y / 2)), 0, (side.x /2), 1, 20);
       score++;
@@ -63,6 +66,8 @@ class Ball
     if ((centerPoint.y - (radius.y / 2)) <= 0)
     {
       direction.y = -direction.y;
+      bounce_mus.play();
+      bounce_mus.amp(1.5);
     }
 
     if (inGame2 == true)
@@ -71,6 +76,8 @@ class Ball
       if (centerPoint.x >= (width - (radius.x / 2)) || centerPoint.x <= (radius.x / 2))
       {
         direction.x = - direction.x;
+        bounce_mus.play();
+        bounce_mus.amp(1.5);
       }
     }
 
@@ -118,6 +125,8 @@ class Ball
         inGame1 = false;
         newGame = true;
         gameMenu = true;
+        play = true;
+        playInGame = true;
       }
     }
   }

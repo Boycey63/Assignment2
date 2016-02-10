@@ -54,15 +54,18 @@ class Menu
     text("With your money you can buy new bouncer colours", (Boundary.y / 2), lineBreak);
     lineBreak= lineBreak + 40;
     text("Press enter to go back to menu", (Boundary.y / 2), lineBreak);
-
+    
     if (keyPressed)
     {
       if (key == ENTER)
       {
+        endGame = false;
         inGame2 = false;
         info = false;
         inGame1 = false;
+        newGame = true;
         gameMenu = true;
+        //play = true;
       }
     }
   }
