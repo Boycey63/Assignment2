@@ -4,12 +4,11 @@ class Ball extends GameObjective
   PVector radius;
   PVector direction;
   PVector incBallSpeed;
-  int bounceCount;
+  PVector ballCol;
 
   Ball()
   {
     Boundary = new PVector(650, 500);
-    bounceCount = 0;
     direction = new PVector(3, -3);
     radius = new PVector(30, 30);
     centerPoint = new PVector(Boundary.y /2, ((Boundary.x * .75) - radius.x));
@@ -18,7 +17,8 @@ class Ball extends GameObjective
 
   void display()
   {
-    fill(0);
+    fill(balldefCol.x, balldefCol.y, balldefCol.z);
+    stroke(0, 255, 229);
     ellipse(centerPoint.x, centerPoint.y, radius.x, radius.y);
   }
 
@@ -29,15 +29,13 @@ class Ball extends GameObjective
 
   void paddleBounce(PVector topLeft, PVector topRight, PVector side)
   {
-    println(centerPoint);
     //Checks if ball hits between the top part of the bouncer bar
     if (centerPoint.x > (topLeft.x - 10) && centerPoint.x < (topRight.x + 10) && (centerPoint.y + (radius.y / 2)) == topLeft.y)
     {
       direction.y =  - direction.y;
       map(dist((topLeft.x + (side.x / 2)), topLeft.y, centerPoint.x, centerPoint.y + (radius.y / 2)), 0, (side.x /2), 1, 20);
       score++;
-      bounceCount++;
-      println("Hello");
+      
       //Change Level and Speed
       if (score == level)
       {
@@ -80,7 +78,6 @@ class Ball extends GameObjective
     if ((centerPoint.y - (radius.y / 2)) <= 0)
     {
       direction.y = -direction.y;
-      bounceCount = 0;
     }
 
     if (inGame2 == true)
@@ -102,6 +99,8 @@ class Ball extends GameObjective
   void endOfGame()
   {
    float lineBreak = Boundary.x * .25; 
+   
+    money = score * 2;
     
    textAlign(CENTER);
    textSize(40);
@@ -111,6 +110,8 @@ class Ball extends GameObjective
    text("Your level was: " + (level / 5),  Boundary.y /2, lineBreak);
    lineBreak = lineBreak + 20;
    text("Your score was: " + score, Boundary.y /2, lineBreak);
+   lineBreak = lineBreak + 20;
+   text("Total money earned: " + (score * 2), Boundary.y /2, lineBreak);
    lineBreak = lineBreak + 60;
    text("Press Enter to return to menu", Boundary.y /2, lineBreak);
    
@@ -126,14 +127,5 @@ class Ball extends GameObjective
         gameMenu = true;
       }
     }
-  }
-  
-  void reset()
-  {
-    bounceCount = 0;
-    direction = new PVector(3, -3);
-    radius = new PVector(30, 30);
-    centerPoint = new PVector(Boundary.y /2, ((Boundary.x * .75) - radius.x));
-    incBallSpeed = new PVector(.5, -.5);
   }
 }

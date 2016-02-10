@@ -1,6 +1,7 @@
 class Bumper extends Bouncer
 {
   int LorR;
+  PVector defCol;
 
   Bumper()
   {
@@ -13,12 +14,14 @@ class Bumper extends Bouncer
     this.TRcorner = new PVector(TLcorner.x + sideLenght.x, TLcorner.y);
     this.BLcorner = new PVector(TLcorner.x, (TLcorner.y + sideLenght.y));
     this.BRcorner = new PVector(TRcorner.x, BLcorner.y);
+    defCol = new PVector(255, 255, 255);
   }
 
   void display()
   {
     rectMode(CENTER);
-    fill(255, 0, 0);
+    fill(defCol.x, defCol.y, defCol.z);
+    stroke(0, 255, 229);
     rect(Position.x, Position.y, sideLenght.x, sideLenght.y, 20);
   }
 
