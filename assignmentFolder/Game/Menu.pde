@@ -113,81 +113,81 @@ class Menu
     {
     case 1:
       {
-          cost = 10;
-          if (cost <= total)
-          {
-            //Red
-            bouncerdefCol.x = red.x;
-            bouncerdefCol.y = red.y;
-            bouncerdefCol.z = red.z;
-            total = total - cost;
-            number = 10;
-          } 
-          if (cost > total)
-          {
-            println("Not enough money");
-            number = 10;
-          }
+        cost = 10;
+        if (cost <= total)
+        {
+          //Red
+          bouncerdefCol.x = red.x;
+          bouncerdefCol.y = red.y;
+          bouncerdefCol.z = red.z;
+          total = total - cost;
+          number = 10;
+        } 
+        if (cost > total)
+        {
+          println("Not enough money");
+          number = 10;
+        }
         break;
       }
 
     case 2:
       {
-          cost = 20;
-          if (cost <= total)
-          {
-            //Yellow
-            bouncerdefCol.x = yellow.x;
-            bouncerdefCol.y = yellow.y;
-            bouncerdefCol.z = yellow.z;
-            total = total - cost;
-            number = 10;
-          } 
-          if (cost > total)
-          {
-            println("Not enough money");
-            number = 10;
-          }
+        cost = 20;
+        if (cost <= total)
+        {
+          //Yellow
+          bouncerdefCol.x = yellow.x;
+          bouncerdefCol.y = yellow.y;
+          bouncerdefCol.z = yellow.z;
+          total = total - cost;
+          number = 10;
+        } 
+        if (cost > total)
+        {
+          println("Not enough money");
+          number = 10;
+        }
         break;
       }
 
     case 3:
       {
-            cost = 30;
-            if (cost <= total)
-            {
-              //Blue
-              bouncerdefCol.x = blue.x;
-              bouncerdefCol.y = blue.y;
-              bouncerdefCol.z = blue.z;
-              total = total - cost;
-              number = 10;
-            }
-            if (cost > total)
-            {
-              println("Not enough money");
-              number = 10;
-            }
+        cost = 30;
+        if (cost <= total)
+        {
+          //Blue
+          bouncerdefCol.x = blue.x;
+          bouncerdefCol.y = blue.y;
+          bouncerdefCol.z = blue.z;
+          total = total - cost;
+          number = 10;
+        }
+        if (cost > total)
+        {
+          println("Not enough money");
+          number = 10;
+        }
         break;
       }
 
     case 4:
       {
-          cost = 40;
-          if (cost <= total)
-          {
-            //Pink
-            bouncerdefCol.x = pink.x;
-            bouncerdefCol.y = pink.y;
-            bouncerdefCol.z = pink.z;
-            total = total - cost;
-            number = 10;
-          }
-          if (cost > total)
-          {
-            println("Not enough money");
-            number = 10;
-          }
+        cost = 40;
+        if (cost <= total)
+        {
+          //Pink
+          bouncerdefCol.x = pink.x;
+          bouncerdefCol.y = pink.y;
+          bouncerdefCol.z = pink.z;
+          total = total - cost;
+          number = 10;
+        }
+        if (cost > total)
+        {
+          println("Not enough money");
+          number = 10;
+        }
         break;
       }
 
@@ -210,7 +210,7 @@ class Menu
         }
         break;
       }
-      
+
     case 6:
       {
         cost = 10;
@@ -230,7 +230,7 @@ class Menu
         }
         break;
       }
-      
+
     case 7:
       {
         cost = 20;
@@ -250,7 +250,7 @@ class Menu
         }
         break;
       }
-      
+
     case 8:
       {
         cost = 30;
@@ -270,7 +270,7 @@ class Menu
         }
         break;
       }
-      
+
     case 9:
       {
         cost = 40;
@@ -290,7 +290,7 @@ class Menu
         }
         break;
       }
-      
+
     case 0:
       {
         cost = 50;

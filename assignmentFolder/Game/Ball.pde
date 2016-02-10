@@ -85,7 +85,7 @@ class Ball
   void endOfGame()
   {
     float lineBreak = Boundary.x * .25; 
-    
+
     money = score * 2;
     if (stop == false)
     {
