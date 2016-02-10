@@ -30,7 +30,6 @@ int total;
 PVector Boundary;
 int cost;
 int number = 10;
-ArrayList<GameObjective> content = new ArrayList<GameObjective>();
 
 PVector bouncerdefCol;
 PVector balldefCol;
