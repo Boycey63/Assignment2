@@ -77,6 +77,7 @@ class Ball extends GameObjective
     //If touched bottom
     if ((centerPoint.y + radius.y) >= (Boundary.x + 90))
     {
+      inGame_mus.stop();
       endGame = true;
     }
   }

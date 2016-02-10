@@ -1,4 +1,11 @@
-Bouncer bouncer = new Bouncer(); //<>//
+import processing.sound.*; //<>//
+
+SoundFile menu_mus;
+SoundFile inGame_mus;
+SoundFile endGame_mus;
+SoundFile bounce_mus;
+
+Bouncer bouncer = new Bouncer();
 Ball ball = new Ball();
 Menu menu = new Menu();
 Bumper bumper = new Bumper();
@@ -34,6 +41,8 @@ PVector pink;
 PVector black;
 PVector white;
 
+
+
 void setup() {
   size(500, 650);
   Boundary = new PVector(650, 500);
@@ -47,28 +56,39 @@ void setup() {
 
   inGame_back = loadImage("inGame_background.jpg");
   menu_back = loadImage("menu_background.gif");
+  
+  menu_mus = new SoundFile(this, "menuMusic.mp3");
+  inGame_mus = new SoundFile(this, "inGameMusic.mp3");
+  endGame_mus = new SoundFile(this, "EndGame.mp3");
+  bounce_mus = new SoundFile(this, "Bounce.mp3");
+  
 }
 
 
 void draw() {
+  smooth();
   frameRate(60);
   background(80);
+  
   if (gameMenu == true)
   {
     background(menu_back);
     menu.display();
     menu.mouseClicked();
+    menu_mus.loop();
   }
 
   if (info == true)
   {
     menu.information();
+    menu_mus.loop();
   }
 
   if (inGame1 == true || inGame2 == true)
   {
     background(inGame_back);
-
+    inGame_mus.loop();
+    
     if (newGame == true)
     {
       speed = 3;
@@ -99,11 +119,13 @@ void draw() {
   {
     background(menu_back);
     menu.store();
+    menu_mus.loop();
   }
 
   if (endGame == true)
   {
     ball.endOfGame();
+    endGame_mus.play();
   }
 }
 
