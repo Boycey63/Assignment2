@@ -45,8 +45,8 @@ void setup() {
   pink = new PVector(255, 79, 226);
   black = new PVector(0, 0, 0);
 
-  //inGame_back = loadImage("ingame_background.gif");
-  //menu_back = loadImage("menu_background.gif");
+  inGame_back = loadImage("inGame_background.jpg");
+  menu_back = loadImage("menu_background.gif");
 }
 
 
@@ -55,7 +55,7 @@ void draw() {
   background(80);
   if (gameMenu == true)
   {
-    //background(menu_back);
+    background(menu_back);
     menu.display();
     menu.mouseClicked();
   }
@@ -67,7 +67,7 @@ void draw() {
 
   if (inGame1 == true || inGame2 == true)
   {
-    //background(inGame_back);
+    background(inGame_back);
 
     if (newGame == true)
     {
@@ -90,13 +90,15 @@ void draw() {
     bumper.move();
     textAlign(LEFT);
     textSize(20);
+    fill(0);
     text("Score:" + score, 20, 20);
     text("Level:" + (level / 5), 20, 40);
   }
 
   if (store == true)
   {
-    menu.store(ball.ballCol, bouncer.bouncerCol);
+    background(menu_back);
+    menu.store();
   }
 
   if (endGame == true)

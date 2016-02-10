@@ -22,7 +22,7 @@ class Bouncer extends GameObjective
   {
     rectMode(CENTER);
     fill(bouncerdefCol.x, bouncerdefCol.y, bouncerdefCol.z);
-    stroke(0, 255, 229);
+    stroke(0);
     rect(Position.x, Position.y, sideLenght.x, sideLenght.y, 20);
   } 
 

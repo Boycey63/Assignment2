@@ -18,7 +18,7 @@ class Ball extends GameObjective
   void display()
   {
     fill(balldefCol.x, balldefCol.y, balldefCol.z);
-    stroke(0, 255, 229);
+    stroke(0);
     ellipse(centerPoint.x, centerPoint.y, radius.x, radius.y);
   }
 
@@ -39,25 +39,10 @@ class Ball extends GameObjective
       //Change Level and Speed
       if (score == level)
       {
+        println("No");
         level = level + 5;
         direction.add(incBallSpeed);
-        while (score == level)
-        {
-          textSize(20);
-          text("Level up!!!", Boundary.y /2, Boundary.x /2);
-        }
-      }
-
-
-      if (score == level && (level % 2) == 1)
-      {
-        level = level + 5;
         speed = speed + 1;
-        while (score == level)
-        {
-          textSize(20);
-          text("Level up!!!", Boundary.y /2, Boundary.x /2);
-        }
       }
     }
 

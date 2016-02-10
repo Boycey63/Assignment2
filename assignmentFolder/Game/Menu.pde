@@ -2,6 +2,7 @@ class Menu extends GameObjective
 {
   void display()
   {
+    stroke(0);
     Boundary = new PVector(560, 500);
     line(0, Boundary.x / 2, Boundary.y, Boundary.x / 2);
     line(0, Boundary.x, Boundary.y, Boundary.x);
@@ -14,11 +15,12 @@ class Menu extends GameObjective
     text("Play Game (with walls)", Boundary.y * .25, Boundary.x * .75);
     text("Shop", Boundary.y * .75, Boundary.x * .75);
     textSize(40);
-    text("NAME OF GAME", Boundary.y * .5, Boundary.x + 55);
+    text("ULTIMATE PONG", Boundary.y * .5, Boundary.x + 55);
   }
 
   void information()
   {
+    background(menu_back);
     float lineBreak = Boundary.x *.25;
     stroke(255);
     textAlign(CENTER);
@@ -65,9 +67,8 @@ class Menu extends GameObjective
     }
   }
 
-  void store(PVector ballCol, PVector bouncerCol)
+  void store()
   {
-    int counter = 1;
     float lineBreak = Boundary.x * .08;
     float xpos1 = Boundary.y * .02;
     float xpos2 = Boundary.y *.5;
@@ -83,7 +84,7 @@ class Menu extends GameObjective
     text("Press a number to choose a colour", xpos1, lineBreak);
     lineBreak = lineBreak + 60;
     textSize(30);
-    fill(0);
+    fill(red.x, red.y, red.z);
     text("Bouncer colour", xpos1, lineBreak);
     text("Ball colour", xpos2, lineBreak);
     lineBreak = lineBreak + 40;
@@ -91,21 +92,22 @@ class Menu extends GameObjective
     text("(1) Red = 10", xpos1, lineBreak);
     text("(6) Red = 10", xpos2, lineBreak);
     lineBreak = lineBreak + 70;
-    text("(2) Yellow = 12", xpos1, lineBreak);
-    text("(7) Yellow = 12", xpos2, lineBreak);
+    text("(2) Yellow = 20", xpos1, lineBreak);
+    text("(7) Yellow = 20", xpos2, lineBreak);
     lineBreak = lineBreak + 70;
-    text("(3) Blue = 14", xpos1, lineBreak);
-    text("(8) Blue = 14", xpos2, lineBreak);
+    text("(3) Blue = 30", xpos1, lineBreak);
+    text("(8) Blue = 30", xpos2, lineBreak);
     lineBreak = lineBreak + 70;
-    text("(4) Pink = 16", xpos1, lineBreak);
-    text("(9) Pink = 16", xpos2, lineBreak);
+    text("(4) Pink = 40", xpos1, lineBreak);
+    text("(9) Pink = 40", xpos2, lineBreak);
     lineBreak = lineBreak + 70;
-    text("(5) Black = 18", xpos1, lineBreak);
-    text("(0) Black = 18", xpos2, lineBreak);
+    text("(5) Black = 50", xpos1, lineBreak);
+    text("(0) Black = 50", xpos2, lineBreak);
     lineBreak = lineBreak + 140;
     fill(255);
     text("Press Enter to return to menu", xpos1, lineBreak);
-    line((xpos2 -10), 124.8, (xpos2 -10), 544.8);
+    stroke(red.x, red.y, red.z);
+    line((xpos2 -10), 124.8, (xpos2 -10), 474.8);
 
     switch(number)
     {
@@ -119,7 +121,6 @@ class Menu extends GameObjective
             bouncerdefCol.y = red.y;
             bouncerdefCol.z = red.z;
             total = total - cost;
-            println("Colour changed");
             number = 10;
           } 
           if (cost > total)
@@ -132,7 +133,7 @@ class Menu extends GameObjective
 
     case 2:
       {
-          cost = 12;
+          cost = 20;
           if (cost <= total)
           {
             //Yellow
@@ -152,7 +153,7 @@ class Menu extends GameObjective
 
     case 3:
       {
-            cost = 14;
+            cost = 30;
             if (cost <= total)
             {
               //Blue
@@ -172,7 +173,7 @@ class Menu extends GameObjective
 
     case 4:
       {
-          cost = 16;
+          cost = 40;
           if (cost <= total)
           {
             //Pink
@@ -192,7 +193,7 @@ class Menu extends GameObjective
 
     case 5:
       {
-        cost = 18;
+        cost = 50;
         if (cost <= total)
         {
           //Green
@@ -232,7 +233,7 @@ class Menu extends GameObjective
       
     case 7:
       {
-        cost = 12;
+        cost = 20;
         if (cost <= total)
         {
           //Yellow
@@ -252,7 +253,7 @@ class Menu extends GameObjective
       
     case 8:
       {
-        cost = 14;
+        cost = 30;
         if (cost <= total)
         {
           //Blue
@@ -272,7 +273,7 @@ class Menu extends GameObjective
       
     case 9:
       {
-        cost = 16;
+        cost = 40;
         if (cost <= total)
         {
           //Pink
@@ -292,7 +293,7 @@ class Menu extends GameObjective
       
     case 0:
       {
-        cost = 18;
+        cost = 50;
         if (cost <= total)
         {
           //Black
@@ -313,7 +314,6 @@ class Menu extends GameObjective
 
     default:
       {
-        println("Enter a number between 0 and 9");
         break;
       }
     }
