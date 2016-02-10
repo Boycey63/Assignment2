@@ -30,7 +30,8 @@ class Bouncer
   {
     nextDirectionX = new PVector(speed, 0);
     nextDirectionY = new PVector(0, speed);
-
+    
+    //Add and subtracts to the position of the center of the square
     if (key == 's' && Position.y + (sideLenght.y / 2) < (height - 10))
     {
       Position.add(nextDirectionY);

@@ -24,6 +24,7 @@ class Ball
 
   void move()
   {
+    //adds direction to the centerpoint of the circle to move
     centerPoint.add(direction);
   }
 
@@ -48,7 +49,8 @@ class Ball
         speed = speed + 1;
       }
     }
-
+    
+    //Gets rid of walls and translates ball from one side of the screen to the other 
     if (inGame1 == true)
     {
       if ((centerPoint.x + (radius.x / 2)) < 0)
@@ -69,7 +71,8 @@ class Ball
       bounce_mus.play();
       bounce_mus.amp(1.5);
     }
-
+     
+     //Puts walls into game
     if (inGame2 == true)
     {
       //Check if ball hits sides and bounce back
@@ -81,7 +84,7 @@ class Ball
       }
     }
 
-    //If touched bottom
+    //Ends game if touched bottom 
     if ((centerPoint.y + radius.y) >= (Boundary.x + 90))
     {
       inGame_mus.stop();
@@ -92,7 +95,8 @@ class Ball
   void endOfGame()
   {
     float lineBreak = Boundary.x * .25; 
-
+    
+    //Sets score, money and total money
     money = score * 2;
     if (stop == false)
     {
@@ -114,7 +118,8 @@ class Ball
     text("Current total money earned: " + total, Boundary.y /2, lineBreak);
     lineBreak = lineBreak + 60;
     text("Press Enter to return to menu", Boundary.y /2, lineBreak);
-
+    
+    //Returns to menu if game is over
     if (keyPressed)
     {
       if (key == ENTER)

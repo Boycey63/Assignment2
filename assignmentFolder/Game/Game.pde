@@ -10,9 +10,11 @@ Ball ball = new Ball();
 Menu menu = new Menu();
 Bumper bumper = new Bumper();
 
-
+//Creates background variables
 PImage inGame_back;
 PImage menu_back;
+
+//Creating and initalise booleans
 boolean endGame = false;
 boolean gameMenu = true;
 boolean info = false;
@@ -26,6 +28,7 @@ boolean playEnd = true;
 boolean playBounce = true;
 boolean playInGame = true;
 
+//Creating and initalise variables
 float speed = 3;
 int score;
 int level = 5;
@@ -34,7 +37,6 @@ int total;
 PVector Boundary;
 int cost;
 int number = 10;
-
 PVector bouncerdefCol;
 PVector balldefCol;
 PVector red;
@@ -48,8 +50,12 @@ PVector white;
 
 void setup() {
   size(500, 650);
+  
+  //Initalises all PVectors 
   Boundary = new PVector(650, 500);
   bouncerdefCol = new PVector(255, 255, 255);
+  
+  //Initalises all colours
   balldefCol = new PVector(255, 255, 255);
   red = new PVector(255, 29, 5);
   blue = new PVector(5, 115, 250);
@@ -57,9 +63,11 @@ void setup() {
   pink = new PVector(255, 79, 226);
   black = new PVector(0, 0, 0);
 
+  //Initalises backgrounds
   inGame_back = loadImage("inGame_background.jpg");
   menu_back = loadImage("menu_background.gif");
-
+  
+  //Initalises sounds
   menu_mus = new SoundFile(this, "menuMusic.mp3");
   inGame_mus = new SoundFile(this, "inGameMusic.mp3");
   endGame_mus = new SoundFile(this, "EndGame.mp3");
@@ -72,12 +80,14 @@ void draw() {
   frameRate(60);
   background(80);
 
+  //Runs the game menu
   if (gameMenu == true)
   {
     background(menu_back);
     menu.display();
     menu.mouseClicked();
 
+    //play music
     if (play == true)
     {
       menu_mus.play();
@@ -85,10 +95,12 @@ void draw() {
     }
   }
 
+  //Runs the information screen
   if (info == true)
   {
     menu.information();
     
+    //play music
     if (play == true)
     {
       menu_mus.play();
@@ -96,12 +108,14 @@ void draw() {
     }
   }
 
+  //Runs the game, which one depends on mouse click
   if (inGame1 == true || inGame2 == true)
   {
     background(inGame_back);
     
     menu_mus.stop();
-
+    
+    //Plays music
     if (playInGame == true)
     {
       //println(play);
@@ -110,6 +124,7 @@ void draw() {
 
     }
     
+    //Resets game once played
     if (newGame == true)
     {
       speed = 3;
@@ -137,6 +152,7 @@ void draw() {
     text("Level:" + (level / 5), 20, 40);
   }
 
+  //Runs the shop screen
   if (store == true)
   {
     background(menu_back);
@@ -149,6 +165,7 @@ void draw() {
     }
   }
 
+  //When game ends if ball hits bottom
   if (endGame == true)
   {
     ball.endOfGame();
@@ -159,6 +176,7 @@ void draw() {
   }
 }
 
+//sets variable for the store menu
 void keyPressed()
 {
   if (store == true)

@@ -2,6 +2,7 @@ class Menu
 {
   void display()
   {
+    //Draws Main menu
     stroke(0);
     Boundary = new PVector(560, 500);
     line(0, Boundary.x / 2, Boundary.y, Boundary.x / 2);
@@ -20,6 +21,7 @@ class Menu
 
   void information()
   {
+    //Draws information srceen
     background(menu_back);
     float lineBreak = Boundary.x *.25;
     stroke(255);
@@ -55,6 +57,7 @@ class Menu
     lineBreak= lineBreak + 40;
     text("Press enter to go back to menu", (Boundary.y / 2), lineBreak);
     
+    //Exits information screen
     if (keyPressed)
     {
       if (key == ENTER)
@@ -72,13 +75,16 @@ class Menu
 
   void store()
   {
+    //lineBreak sets gap under each line
     float lineBreak = Boundary.x * .08;
+    //xpos sets gap between the two sets of text
     float xpos1 = Boundary.y * .02;
     float xpos2 = Boundary.y *.5;
     fill(255);
     textAlign(LEFT);
     textSize(40);
-
+    
+    //Draws the store screen
     text("Store", xpos1, lineBreak);
     lineBreak = lineBreak + 20;
     textSize(20);
@@ -111,11 +117,13 @@ class Menu
     text("Press Enter to return to menu", xpos1, lineBreak);
     stroke(red.x, red.y, red.z);
     line((xpos2 -10), 124.8, (xpos2 -10), 474.8);
-
+    
+    //This case is used to change the colour of each shape
     switch(number)
     {
     case 1:
       {
+        //cost set the price of the colour change
         cost = 10;
         if (cost <= total)
         {
@@ -333,7 +341,8 @@ class Menu
       }
     }
   }
-
+  
+  //This sets the boundarys and click for the menu system
   void mouseClicked()
   {
     //Option1 TOP LEFT
