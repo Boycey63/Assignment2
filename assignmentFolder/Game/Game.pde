@@ -75,7 +75,6 @@ void draw() {
     menu.display();
     menu.mouseClicked();
 
-    play = true;
     if (play == true)
     {
       menu_mus.loop();
@@ -86,7 +85,7 @@ void draw() {
   if (info == true)
   {
     menu.information();
-    play = true;
+    
     if (play == true)
     {
       menu_mus.loop();
@@ -97,7 +96,7 @@ void draw() {
   if (inGame1 == true || inGame2 == true)
   {
     background(inGame_back);
-    play = true;
+    
     if (play == true)
     {
       inGame_mus.loop();
@@ -134,7 +133,7 @@ void draw() {
   {
     background(menu_back);
     menu.store();
-    play = true;
+    
     if (play == true)
     {
       menu_mus.loop();
@@ -145,7 +144,7 @@ void draw() {
   if (endGame == true)
   {
     ball.endOfGame();
-    play = true;
+    
     if (play == true)
     {
       endGame_mus.play();
