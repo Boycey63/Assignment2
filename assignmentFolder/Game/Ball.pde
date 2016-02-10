@@ -1,4 +1,4 @@
-class Ball extends GameObjective
+class Ball
 {
   PVector centerPoint;
   PVector radius;

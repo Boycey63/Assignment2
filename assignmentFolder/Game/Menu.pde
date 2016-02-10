@@ -1,4 +1,4 @@
-class Menu extends GameObjective
+class Menu
 {
   void display()
   {

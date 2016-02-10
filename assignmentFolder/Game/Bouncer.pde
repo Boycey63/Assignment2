@@ -1,4 +1,4 @@
-class Bouncer extends GameObjective
+class Bouncer
 {
   PVector sideLenght;
   PVector Position;
